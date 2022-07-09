@@ -87,8 +87,7 @@ move weights/faster/epoch_12.pth to ../TOV_mmdetection_cache/work_dir/coco/Faste
 ### Test && Visualization
 
 1. Inference and Visualization of FasterRCNN
-    ```run such command for visualization of detection performance on P2BNet-FR```
-    ```shell script
+    ```run such command for visualization of detection performance on P2BNet-FR
     # move weights/faster/epoch_12.pth to ../TOV_mmdetection_cache/work_dir/coco/Faster/epoch_12.pth
     # [cmd 1] 'exp/visulization/image_demo_P2BNet_FR.py' is the entrance of the visualization project. 
 	##Line 30 and 31 define the model's config file and the checkpoint file path.
