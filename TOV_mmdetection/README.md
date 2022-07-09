@@ -106,6 +106,7 @@ move weights/faster/epoch_12.pth to ../TOV_mmdetection_cache/work_dir/coco/Faste
 
 
 2. run such command for visualization of P2BNet
+   ```shell script
     # [cmd 0] inference with trained P2BNet to get pseudo box
 	work_dir='../TOV_mmdetection_cache/work_dir/coco/' && CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 PORT=10000 tools/dist_train.sh configs2/COCO/P2BNet/P2BNet_r50_fpn_1x_coco_ms.py 8 \
 	--work-dir=${work_dir}  \
@@ -117,7 +118,7 @@ move weights/faster/epoch_12.pth to ../TOV_mmdetection_cache/work_dir/coco/Faste
     # [cmd 2] visualization of pseudo annotation as P2BNet result
 	##set line 31 as pseudo anotation path: gt_path='../TOV_mmdetection_cache/work_dir/coco/coco_1200_latest_pseudo_ann_1.json'	
 	python exp/visulization/vis_p2bnet.py 
-
+    ```
 
 
 
