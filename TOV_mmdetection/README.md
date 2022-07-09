@@ -52,13 +52,13 @@ move weights/faster/epoch_12.pth to ../TOV_mmdetection_cache/work_dir/coco/Faste
 
 
 ### train 
-
+```open to the work path: P2BNet/TOV_mmdetection```
 1. P2BNet + FasterRCNN
     ```shell script
     # [cmd 0] train P2BNet and inference on training set with P2BNet
 	work_dir='../TOV_mmdetection_cache/work_dir/coco/' && CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 PORT=10000 tools/dist_train.sh configs2/COCO/P2BNet/P2BNet_r50_fpn_1x_coco_ms.py 8 \
 	--work-dir=${work_dir}  \
-	--cfg-options model.roi_head.with_atten=False  model.roi_head.bbox_head.with_loss_pseudo=False evaluation.save_result_file=${work_dir}'_1200_latest_result.json'
+	--cfg-options evaluation.save_result_file=${work_dir}'_1200_latest_result.json'
 	
     # [cmd 1] turn result file to coco annotation fmt
 	python exp/tools/result2ann.py data/coco/annotations/instances_train2017.json ../TOV_mmdetection_cache/work_dir/coco/_1200_latest_result.json  ../TOV_mmdetection_cache/work_dir/coco/coco_1200_latest_pseudo_ann_1.json
@@ -73,10 +73,10 @@ move weights/faster/epoch_12.pth to ../TOV_mmdetection_cache/work_dir/coco/Faste
     # [cmd 0] inference with trained P2BNet to get pseudo box
 	work_dir='../TOV_mmdetection_cache/work_dir/coco/' && CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 PORT=10000 tools/dist_train.sh configs2/COCO/P2BNet/P2BNet_r50_fpn_1x_coco_ms.py 8 \
 	--work-dir=${work_dir}  \
-	--cfg-options   model.roi_head.bbox_head.with_loss_pseudo=False evaluation.save_result_file=${work_dir}'_1200_latest_result.json' load_from=${work_dir}'P2BNet/epoch_12.pth' evaluation.do_first_eval=True runner.max_epochs=0 
+	--cfg-options  evaluation.save_result_file=${work_dir}'_1200_latest_result.json' load_from=${work_dir}'P2BNet/epoch_12.pth' evaluation.do_first_eval=True runner.max_epochs=0 
 	
     # [cmd 1] turn result file to coco annotation fmt
-	python exp/tools/result2ann.py data/coco/annotations/instances_train2017.json '../TOV_mmdetection_cache/work_dir/coco/_1200_latest_result.json'  '../TOV_mmdetection_cache/work_dir/coco/coco_1200_latest_pseudo_ann_1.json'
+	python exp/tools/result2ann.py data/coco/annotations/instances_train2017.json ../TOV_mmdetection_cache/work_dir/coco/_1200_latest_result.json  ../TOV_mmdetection_cache/work_dir/coco/coco_1200_latest_pseudo_ann_1.json
     
     # [cmd 2] train FasterRCNN
     	work_dir='../TOV_mmdetection_cache/work_dir/coco/' && CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 PORT=10003 ./tools/dist_train.sh configs2/COCO/detection/faster_rcnn_r50_fpn_1x_coco.py 8 \
