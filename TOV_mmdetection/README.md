@@ -51,7 +51,7 @@ move weights/faster/epoch_12.pth to ../TOV_mmdetection_cache/work_dir/coco/Faste
 
 
 
-### train 
+### Train 
 ```open to the work path: P2BNet/TOV_mmdetection```
 1. P2BNet + FasterRCNN
     ```shell script
