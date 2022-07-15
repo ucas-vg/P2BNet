@@ -6,7 +6,7 @@ P2BNet a newly proposed method for point-supervised object detection tasks on [P
 
 To date, It implements the following algorithms:
 * [Point-to-Box Network for Accurate Object Detection via Single Point Supervision (ECCV2022)](TOV_mmdetection/README.md)
-Paper is avaliable here: [https://arxiv.org/abs/2207.06827](https://arxiv.org/abs/2207.06827)
+* Paper is avaliable here: [https://arxiv.org/abs/2207.06827](https://arxiv.org/abs/2207.06827)
 
 ## News
 
