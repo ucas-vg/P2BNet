@@ -32,7 +32,7 @@ conda install scikit-image  # or pip install scikit-image
 #  Prepare dataset COCO
 1. download dataset to data/coco
 2. generate point annotation or download point annotation(
-[Baidu Yun passwd:1ej8](https://pan.baidu.com/s/11QDOZzognvZPaTgbJEYXAw) or 
+[Baidu Yun passwd:6752](https://pan.baidu.com/s/1XF9TneCxByqOJfAaqciP8A?pwd=6752 ) or 
 [Google Driver]()],
 move annotations/xxx to data/coco/annotations_qc_pt/xxx
 
@@ -45,7 +45,7 @@ move annotations/xxx to data/coco/annotations_qc_pt/xxx
 ## Take COCO as example
 ### Prepare trained model 
 1. move coco dataset (2017 version) or make a soft link to data/coco
-2. download weight from [Baidu Yun(passwd:8wwp)](https://pan.baidu.com/s/1342yotCr7fD-72PZnNDnOA) or [Google Driver]() ,
+2. download weight from [Baidu Yun(passwd:3pfu)](https://pan.baidu.com/s/1G_S0zYJNMtBYF3fiH6XcKA?pwd=3pfu) or [Google Driver]() ,
 move weights/P2BNet/epoch_12.pth to ../TOV_mmdetection_cache/work_dir/coco/P2BNet/epoch_12.pth
 move weights/faster/epoch_12.pth to ../TOV_mmdetection_cache/work_dir/coco/Faster/epoch_12.pth
 
