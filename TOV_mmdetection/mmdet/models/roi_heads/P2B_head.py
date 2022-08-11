@@ -159,7 +159,7 @@ class P2BHead(StandardRoIHead):
 
         pseudo_boxes = torch.cat(pseudo_boxes)
         if stage == self.num_stages - 1:
-            retrain_weights = self._bac_assigner(torch.cat(proposals_list), torch.cat(proposal_list_base))
+            retrain_weights = None ##TO
         else:
             retrain_weights = None
         loss_instance_mil = self.bbox_head.loss_mil(stage, bbox_results['cls_score'], bbox_results['ins_score'],
@@ -336,15 +336,6 @@ class P2BHead(StandardRoIHead):
         pseudo_boxes = torch.split(pseudo_boxes, batch_gt)
         return list(pseudo_boxes), mean_ious, list(filtered_boxes), list(filtered_scores), dynamic_weight.detach()
 
-    def _bac_assigner(self, bbox, gt_bbox):
-        num_gt = gt_bbox.shape[0]
-        bbox = bbox.reshape(num_gt, -1, 4)
-        gt_bbox = gt_bbox.unsqueeze(1).expand(bbox.shape)
-        iou = bbox_overlaps(bbox, gt_bbox, is_aligned=True)
-        box_weight = (iou > 0.5).long()
-        _, idx = iou.max(dim=1)
-        box_weight[idx] = 1
-        return box_weight
 
     def show_box(self, proposals_list, filtered_scores, neg_proposal_list, neg_weight_list, bbox_results, gt_points,
                  img_metas):
