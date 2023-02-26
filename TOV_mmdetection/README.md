@@ -53,8 +53,8 @@ PYTHONPATH=. python huicv/coarse_utils/noise_data_mask_utils.py "generate_noisep
     --size_range "${SR}"
 ```
 2. Transfer QC point annotation to 'bbox' and transfer original bbox to 'true_bbox'
-## the QC point annotation is transfered to 'bbox' with fixed w and h, which is easy for mmdetection reading and dataset pipeline
-## the original bbox is transfered to 'true_bbox', which is the real box ground-turth
+ the QC point annotation is transfered to 'bbox' with fixed w and h, which is easy for mmdetection reading and dataset pipeline
+ the original bbox is transfered to 'true_bbox', which is the real box ground-turth
 ```sh
 export VERSION=1
 export MU=(0 0)
