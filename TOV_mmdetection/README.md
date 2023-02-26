@@ -35,6 +35,8 @@ conda install scikit-image  # or pip install scikit-image
 [Baidu Yun passwd:6752](https://pan.baidu.com/s/1XF9TneCxByqOJfAaqciP8A?pwd=6752 ) or 
 [Google Driver]()],
 move annotations/xxx to data/coco/annotations_qc_pt/xxx
+3. or, you can generate annotation file by yourself:
+
 
 #  QC Point generation for coco
 ## 1.generate QC point annotation
