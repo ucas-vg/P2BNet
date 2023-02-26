@@ -37,7 +37,7 @@ conda install scikit-image  # or pip install scikit-image
 move annotations/xxx to data/coco/annotations_qc_pt/xxx
 
 #  QC Point generation for coco
-1. generate QC point annotation
+## 1.generate QC point annotation
 ```sh
 export MU=(0 0)
 export S=(0.25 0.25)  # sigma
@@ -52,9 +52,9 @@ PYTHONPATH=. python huicv/coarse_utils/noise_data_mask_utils.py "generate_noisep
     --rand_type 'center_gaussian' --range_gaussian_sigma "(${MU[0]},${MU[1]})" --range_gaussian_sigma "(${S[0]},${S[1]})" \
     --size_range "${SR}"
 ```
-2. Transfer QC point annotation to 'bbox' and transfer original bbox to 'true_bbox'
- the QC point annotation is transfered to 'bbox' with fixed w and h, which is easy for mmdetection reading and dataset pipeline
- the original bbox is transfered to 'true_bbox', which is the real box ground-turth
+## 2.Transfer QC point annotation to 'bbox' and transfer original bbox to 'true_bbox'
+### the QC point annotation is transfered to 'bbox' with fixed w and h, which is easy for mmdetection reading and dataset pipeline
+### the original bbox is transfered to 'true_bbox', which is the real box ground-turth
 ```sh
 export VERSION=1
 export MU=(0 0)
@@ -69,7 +69,7 @@ PYTHONPATH=. python huicv/coarse_utils/noise_data_utils.py "generate_pseudo_bbox
     --pseudo_w ${WH[0]} --pseudo_h ${WH[1]}
 ```
 
-3. For other dataset, we can transform the annotation style to coco json style and use the same way.
+## 3.For other dataset, we can transform the annotation style to coco json style and use the same way.
 
 # Train, Test and Visualization
 
