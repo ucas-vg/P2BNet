@@ -95,7 +95,10 @@ def random_choose_in_seg_points(ann):
 
 def random_choose_in_mask(ann, size_range, rand_type, **rand_kwargs):
     x1, y1, w, h = ann['bbox']
-    mask = get_object_mask(ann)
+    if h < 2 or w < 2:
+        return random_choose_in_seg_points(ann)
+    else:
+        mask = get_object_mask(ann)
     if mask.sum() == 0:
         return random_choose_in_seg_points(ann)
     if rand_type == 'uniform':
