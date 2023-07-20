@@ -1,3 +1,6 @@
+# News
+* The project has move to [PointTinyBenchmark](https://github.com/ucas-vg/PointTinyBenchmark/tree/P2BNet) as a branch, it will be merge into master branch latter.
+
 ## ECCV2022, Point-to-Box Network for Accurate Object Detection via Single Point Supervision
 P2BNet
 --------------
@@ -7,8 +10,6 @@ P2BNet a newly proposed method for point-supervised object detection tasks on [P
 To date, It implements the following algorithms:
 * [Point-to-Box Network for Accurate Object Detection via Single Point Supervision (ECCV2022)](TOV_mmdetection/README.md)
 * Paper is avaliable here: [https://arxiv.org/abs/2207.06827](https://arxiv.org/abs/2207.06827)
-
-## News
 
 ## Citation
 
